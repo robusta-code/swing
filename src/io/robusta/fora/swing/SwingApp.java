@@ -1,9 +1,12 @@
 package io.robusta.fora.swing;
 
+import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.domain.Comment;
+
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.BorderLayout;
 
 public class SwingApp {
 
@@ -40,7 +43,12 @@ public class SwingApp {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		CommentView commentView = new CommentView();
+		//Boilerplate
+		Comment model = ForaDataSource.getInstance().getComments().get(0);
+		CommentView commentView = new CommentView(model);
+		CommentController controller = new CommentController(model, commentView);
+		commentView.setController(controller);
+		
 		frame.getContentPane().add(commentView, BorderLayout.CENTER);
 	}
 

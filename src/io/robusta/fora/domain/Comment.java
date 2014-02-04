@@ -142,6 +142,15 @@ public class Comment implements Serializable, Flagable {
 		this.flags = flags;
 	}
 	
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
 	@Override
 	public String toString() {
 		if (user != null){
@@ -151,5 +160,7 @@ public class Comment implements Serializable, Flagable {
 		}
 		
 	}
+	
+	
 	
 }
