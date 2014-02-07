@@ -52,12 +52,30 @@ public class SwingApp {
 		//frame.getContentPane().add(commentView, BorderLayout.CENTER);
 		*/
 		
+		Subject subject = ForaDataSource.getInstance().getSubjects().get(0);
 		//Boilerplate for SubjectView
-		Subject model = ForaDataSource.getInstance().getSubjects().get(0);		
-		SubjectView view = new SubjectView();
-		SubjectController controller = new SubjectController(view, model);
-		view.setController(controller);
-		frame.getContentPane().add(view, BorderLayout.CENTER);
+		
+				
+		SubjectView subjectView = new SubjectView();
+		SubjectController subjectController = new SubjectController(subjectView, subject);
+		subjectView.setController(subjectController);
+		
+		
+		CreateCommentModel createCommentModel = new CreateCommentModel();
+		createCommentModel.setSubject(subject);
+		CreateCommentView createCommentView = new CreateCommentView(createCommentModel);
+		
+		CreateCommentController createCommentController = new CreateCommentController(createCommentView, createCommentModel);
+		createCommentView.setController(createCommentController );
+		
+		frame.getContentPane().add(subjectView, BorderLayout.CENTER);
+		frame.getContentPane().add(createCommentView, BorderLayout.SOUTH);
 	}
 
 }
+
+
+
+
+
+
