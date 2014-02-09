@@ -3,6 +3,7 @@ package io.robusta.fora.domain;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class Flag implements Serializable {
@@ -13,6 +14,9 @@ public class Flag implements Serializable {
 	Long id;
 
 	String content;
+	
+	@XmlTransient
+	Comment comment;
 
 	public Long getId() {
 		return id;
@@ -30,6 +34,21 @@ public class Flag implements Serializable {
 		this.content = content;
 	}
 
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+	
+	public Comment getComment() {
+		return comment;
+	}
+	
+	
+	@Override
+	public String toString() {
+		
+		return "Flag for '"+this.comment.getContent()+"' because : "+this.content;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -32,7 +32,7 @@ public class ForaDataSource {
 		initUsers();
 		initSubjects();
 
-		//fillMany(24);
+		fillMany(24);
 		
 	}
 	
@@ -135,6 +135,7 @@ public class ForaDataSource {
 		Flag flag = new Flag();
 		flag.setId(1L);
 		flag.setContent("This guy went too far.");
+		flag.setComment(c3);
 		c3.getFlags().add(flag);
 		flags.add(flag);
 		
@@ -200,6 +201,7 @@ public class ForaDataSource {
 			Flag flag = new Flag();
 			Comment c = getRandomItem(Comment.class, comments);
 			flag.setContent("This is a flag for `" + c.getContent()+"`");
+			flag.setComment(c);
 			c.getFlags().add(flag);
 			flags.add(flag);
 		}
