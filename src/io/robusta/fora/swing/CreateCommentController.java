@@ -8,6 +8,7 @@ public class CreateCommentController {
 
 	CreateCommentView view;
 	CreateCommentModel model;
+	SubjectController subjectController;
 	
 	public CreateCommentController(CreateCommentView view, CreateCommentModel model) {
 		this.view = view;
@@ -15,7 +16,15 @@ public class CreateCommentController {
 	}
 	
 	public void cancelAction(){
-		
+		view.resetView();
+	}
+	
+	public void setSubjectController(SubjectController subjectController) {
+		this.subjectController = subjectController;
+	}
+	
+	public SubjectController getSubjectController() {
+		return subjectController;
 	}
 	
 	public Comment createComment(String content, boolean isAnonymous){
@@ -38,6 +47,8 @@ public class CreateCommentController {
 		model.setNewComment(comment);
 		model.setAnonymous(isAnonymous);
 		
+		subjectController.addComment(comment);
+		view.resetView();
 		
 		return comment;
 	}

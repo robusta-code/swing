@@ -30,7 +30,7 @@ public class CreateCommentView extends JPanel {
 		initView();
 	}
 	
-	
+	JTextPane contentPane ;
 	/**
 	 * Create the panel.
 	 */
@@ -39,7 +39,7 @@ public class CreateCommentView extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		
-		final JTextPane contentPane = new JTextPane();
+		contentPane = new JTextPane();
 		add(contentPane);
 		
 		final JCheckBox anonymousCheckBox = new JCheckBox("anonymous");
@@ -50,6 +50,11 @@ public class CreateCommentView extends JPanel {
 		add(buttonsPanel);
 		
 		JButton cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				resetView();
+			}
+		});
 		buttonsPanel.add(cancelButton);
 		
 		JButton okButton = new JButton("OK");
@@ -68,6 +73,12 @@ public class CreateCommentView extends JPanel {
 		
 		errorLabel = new JLabel("");
 		add(errorLabel);
+	}
+	
+	public void resetView(){
+		showError("");
+		contentPane.setText("");
+		
 	}
 	
 	

@@ -67,6 +67,7 @@ public class SwingApp {
 		
 		CreateCommentController createCommentController = new CreateCommentController(createCommentView, createCommentModel);
 		createCommentView.setController(createCommentController );
+		createCommentController.setSubjectController(subjectController);
 		
 		frame.getContentPane().add(subjectView, BorderLayout.CENTER);
 		frame.getContentPane().add(createCommentView, BorderLayout.SOUTH);

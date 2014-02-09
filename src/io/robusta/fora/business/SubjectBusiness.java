@@ -2,6 +2,7 @@ package io.robusta.fora.business;
 
 import io.robusta.fora.ForaDataSource;
 import io.robusta.fora.beans.SubjectBean;
+import io.robusta.fora.domain.Comment;
 import io.robusta.fora.domain.Subject;
 
 import java.util.List;
@@ -36,6 +37,13 @@ public class SubjectBusiness {
 		return fora.getSubjects();
 		
 	}
+	
+	
+	public void addComment(Subject s, Comment c){
+		s.getComments().add(c);
+		fora.getComments().add(c);
+	}
+	
 
 	
 	public SubjectBean getSubjectBean(long id, int commentStart, int length) {
