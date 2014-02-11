@@ -78,6 +78,11 @@ public class CommentView extends JPanel {
 		add(buttonDislike);
 		
 		JButton buttonFlag = new JButton("");
+		buttonFlag.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.flag();
+			}
+		});
 		buttonFlag.setIcon(new ImageIcon(CommentView.class.getResource("/io/robusta/fora/swing/images/flag.jpg")));
 		add(buttonFlag);
 

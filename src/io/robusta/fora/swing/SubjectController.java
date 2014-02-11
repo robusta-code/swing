@@ -21,5 +21,9 @@ public class SubjectController {
 		ForaDataSource.getInstance().getComments().add(comment);
 		this.view.addComment(comment);
 	}
+
+	public void updateView(){
+		this.view.updateView();
+	}
 	
 }

@@ -202,6 +202,7 @@ public class ForaDataSource {
 			Comment c = getRandomItem(Comment.class, comments);
 			flag.setContent("This is a flag for `" + c.getContent()+"`");
 			flag.setComment(c);
+			flag.setId((long)i);
 			c.getFlags().add(flag);
 			flags.add(flag);
 		}

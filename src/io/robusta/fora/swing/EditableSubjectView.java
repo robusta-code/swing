@@ -9,14 +9,28 @@ import javax.swing.JPanel;
 
 public class EditableSubjectView extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Subject subject;
+	SubjectView subjectView;
 	
-	
+	public SubjectView getSubjectView() {
+		return subjectView;
+	}
+
 	public EditableSubjectView(Subject subject){
 		this.subject = subject;
 		initView();
 	}
 	
+
+	public void setSubjectView(SubjectView subjectView) {
+		this.subjectView = subjectView;
+	}
+
+
 	public EditableSubjectView(){
 		this.subject = ForaDataSource.getInstance().getSubjects().get(0);
 		initView();
@@ -27,15 +41,13 @@ public class EditableSubjectView extends JPanel {
 	public void initView() {
 		setLayout(new BorderLayout(0, 0));
 		
-		SubjectView subjectView = new SubjectView(subject);
+		subjectView = new SubjectView(subject);
 		add(subjectView, BorderLayout.NORTH);
 		
 		CreateCommentModel createCommentModel = new CreateCommentModel();
 		createCommentModel.setSubject(subject);
 		CreateCommentView createCommentView = new CreateCommentView(createCommentModel);
 		add(createCommentView, BorderLayout.SOUTH);
-		
-		
 		
 		SubjectController subjectController = new SubjectController(subjectView, subject);
 		subjectView.setController(subjectController);
