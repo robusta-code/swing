@@ -1,22 +1,25 @@
 package io.robusta.fora.swing;
 
-import java.util.List;
-
 import io.robusta.fora.ForaDataSource;
 import io.robusta.fora.domain.Comment;
+import io.robusta.fora.domain.Flag;
 import io.robusta.fora.domain.Subject;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.util.List;
+
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.BoxLayout;
-import javax.swing.ListModel;
-
-import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
-import javax.swing.JList;
 
 public class SubjectView extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Subject model;
 	SubjectController controller;
 	
@@ -47,6 +50,7 @@ public class SubjectView extends JPanel {
 		panel.add(numberLabel, BorderLayout.EAST);
 
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setPreferredSize(new Dimension(700,500));
 		add(scrollPane, BorderLayout.CENTER);
 
 		 commentsPanel = new JPanel();
@@ -71,6 +75,17 @@ public class SubjectView extends JPanel {
 		return commentView;
 	}
 
+	public void updateView(){
+		commentsPanel.removeAll();
+		List<Comment> comments = model.getComments();
+		for (Comment comment : comments) {
+			CommentView commentView = createCommentView(comment);
+			commentsPanel.add(commentView);
+		}
+		commentsPanel.validate();
+		updateNumberLabel();
+		
+	}
 	
 	void updateNumberLabel(){
 		numberLabel.setText(this.model.getComments().size()+ " comments");
@@ -101,6 +116,10 @@ public class SubjectView extends JPanel {
 
 	public void setController(SubjectController controller) {
 		this.controller = controller;
+	}
+
+	public SubjectController getController() {
+		return this.controller;
 	}
 
 }
