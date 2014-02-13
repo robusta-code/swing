@@ -1,9 +1,11 @@
 package io.robusta.fora.swing;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.Controller;
 import io.robusta.fora.domain.Comment;
 import io.robusta.fora.domain.User;
 
+@Controller
 public class CreateCommentController {
 
 	CreateCommentView view;

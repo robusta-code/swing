@@ -1,6 +1,7 @@
 package io.robusta.fora.swing;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.View;
 import io.robusta.fora.domain.Flag;
 
 import java.awt.BorderLayout;
@@ -12,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+@View
 public class EditableFlagView extends JPanel {
 
 	List<Flag>model ;

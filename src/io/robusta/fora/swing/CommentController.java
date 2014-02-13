@@ -3,9 +3,11 @@ package io.robusta.fora.swing;
 import javax.swing.JOptionPane;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.Controller;
 import io.robusta.fora.domain.Comment;
 import io.robusta.fora.domain.Flag;
 
+@Controller
 public class CommentController {
 
 	Comment model;

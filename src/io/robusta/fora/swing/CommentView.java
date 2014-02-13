@@ -13,11 +13,17 @@ import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.Controller;
+import io.robusta.fora.annotations.Slow;
+import io.robusta.fora.annotations.View;
 import io.robusta.fora.domain.Comment;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.UIManager;
 
+@View
 public class CommentView extends JPanel {
 
 	/**
@@ -28,6 +34,8 @@ public class CommentView extends JPanel {
 	 * @wbp.nonvisual location=130,379
 	 */
 	Comment model;
+	
+	@Controller
 	CommentController controller;
 
 	public CommentView() {
@@ -44,6 +52,7 @@ public class CommentView extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	@Slow(value = 2500, author = "Nicolas")
 	public void initView() {
 		
 		commentPane = new JTextPane();
@@ -90,6 +99,11 @@ public class CommentView extends JPanel {
 
 	public void setController(CommentController controller) {
 		this.controller = controller;
+	}
+	
+	
+	public CommentController getController() {
+		return controller;
 	}
 	
 	private void updateContentColor(){

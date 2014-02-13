@@ -3,10 +3,12 @@ package io.robusta.fora.swing;
 import java.util.List;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.Controller;
 import io.robusta.fora.domain.Comment;
 import io.robusta.fora.domain.Flag;
 import io.robusta.fora.domain.Subject;
 
+@Controller
 public class EditableFlagController {
 
 

@@ -1,12 +1,14 @@
 package io.robusta.fora.swing;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.View;
 import io.robusta.fora.domain.Subject;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 
+@View
 public class EditableSubjectView extends JPanel {
 
 	/**
