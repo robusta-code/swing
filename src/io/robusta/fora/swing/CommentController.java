@@ -8,6 +8,7 @@ import io.robusta.fora.domain.Comment;
 import io.robusta.fora.domain.Flag;
 
 @Controller
+@Deprecated
 public class CommentController {
 
 	Comment model;

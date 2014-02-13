@@ -1,5 +1,7 @@
 package io.robusta.fora.swing;
 
+import io.robusta.fora.annotations.View;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
 
+@View
 public class CreateCommentView extends JPanel {
 
 	CreateCommentController controller;

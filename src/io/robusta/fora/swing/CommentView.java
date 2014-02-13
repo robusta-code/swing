@@ -53,6 +53,7 @@ public class CommentView extends JPanel {
 	 * Create the panel.
 	 */
 	@Slow(value = 2500, author = "Nicolas")
+	@Deprecated
 	public void initView() {
 		
 		commentPane = new JTextPane();
@@ -106,7 +107,15 @@ public class CommentView extends JPanel {
 		return controller;
 	}
 	
-	private void updateContentColor(){
+	
+	@Slow(150)
+	@Deprecated
+	public void showResult(){
+		System.out.println("Hey, i'm executed by reflection");
+	}
+	
+	@Slow(150)
+	public void updateContentColor(){
 		if (this.model.getScore() >0){
 			commentPane.setForeground(Color.GREEN);
 		}else if (this.model.getScore()<0){
@@ -114,5 +123,9 @@ public class CommentView extends JPanel {
 		}else{
 			commentPane.setForeground(Color.BLACK);
 		}
+	}
+	
+	public Comment getModel() {
+		return model;
 	}
 }

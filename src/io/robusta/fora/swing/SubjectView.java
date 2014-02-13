@@ -122,4 +122,14 @@ public class SubjectView extends JPanel {
 		return this.controller;
 	}
 
+	public void updateComment(Comment comment) {
+		
+		CommentView[] commentViews = (CommentView[]) commentsPanel.getComponents();
+		for (CommentView view : commentViews){
+			if (view.getModel().equals(comment)){
+				view.commentPane.setText(comment.getContent());
+			}
+		}
+	}
+
 }

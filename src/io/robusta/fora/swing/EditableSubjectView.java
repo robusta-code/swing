@@ -18,6 +18,8 @@ public class EditableSubjectView extends JPanel {
 	Subject subject;
 	SubjectView subjectView;
 	
+	public static SubjectController subjectController;
+	
 	public SubjectView getSubjectView() {
 		return subjectView;
 	}
@@ -51,7 +53,7 @@ public class EditableSubjectView extends JPanel {
 		CreateCommentView createCommentView = new CreateCommentView(createCommentModel);
 		add(createCommentView, BorderLayout.SOUTH);
 		
-		SubjectController subjectController = new SubjectController(subjectView, subject);
+		subjectController = new SubjectController(subjectView, subject);
 		subjectView.setController(subjectController);
 		
 		CreateCommentController createCommentController = new CreateCommentController(createCommentView, createCommentModel);

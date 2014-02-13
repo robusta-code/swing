@@ -26,4 +26,8 @@ public class SubjectController {
 		this.view.updateView();
 	}
 	
+	public void updateComment(Comment comment){
+		this.view.updateComment(comment);
+	}
+	
 }

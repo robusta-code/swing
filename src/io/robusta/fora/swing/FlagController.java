@@ -1,11 +1,13 @@
 package io.robusta.fora.swing;
 
 import io.robusta.fora.ForaDataSource;
+import io.robusta.fora.annotations.Controller;
 import io.robusta.fora.domain.Flag;
 import io.robusta.fora.domain.Subject;
 
 import javax.swing.JOptionPane;
 
+@Controller
 public class FlagController {
 
 	Flag model;
